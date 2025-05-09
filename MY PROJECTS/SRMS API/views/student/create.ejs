@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Student Record</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fafb;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+    h2 {
+      color: #003366;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form input[type="url"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 25px;
+      background: #003366;
+      border: none;
+      color: white;
+      font-size: 16px;
+      padding: 12px;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #001f4d;
+    }
+    .back-link {
+      margin-top: 15px;
+      display: block;
+      text-align: center;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <%- include('../partials/navbar') %>
+  <div class="container">
+    <h2>Create New Student Record</h2>
+    <form action="/student/create" method="POST" autocomplete="off">
+      <label for="studentId">Student ID</label>
+      <input type="text" name="studentId" id="studentId" required />
+
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required />
+
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" name="phoneNumber" id="phoneNumber" required />
+
+      <label for="course">Course</label>
+      <input type="text" name="course" id="course" required />
+
+      <label for="semester">Semester</label>
+      <input type="text" name="semester" id="semester" required />
+
+      <label for="profilePicture">Profile Picture URL</label>
+      <input type="url" name="profilePicture" id="profilePicture" placeholder="Optional" />
+
+      <button type="submit">Create</button>
+    </form>
+    <a class="back-link" href="/dashboard">← Back to Dashboard</a>
+  </div>
+</body>
+</html>
